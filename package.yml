@@ -1,0 +1,25 @@
+name       : guake
+version    : 0.8.11
+release    : 1
+license    : GPL-3.0
+component  : system.utils
+source     :
+    - https://github.com/Guake/guake/archive/master.zip : 5628a5c520d44b55d3280c6c4c9d814ed0674d44803086f09b07b3fa27d44e7a
+summary    : Dropdown terminal, inspired by Tilda
+description: |
+    Guake is a dropdown terminal made for the GNOME desktop environment. Guake's style of window is based on an FPS game, and one of its goals is to be easy to reach.
+    Guake is mostly written in Python and has a little piece in C (https://github.com/engla/keybinder). The source code is placed in the guake directory. Files and images are in the data directory. Translation files are in the po directory.
+builddeps  :
+    - gnome-common
+    - gconf-devel
+    - python-vte
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(pygtk-2.0)
+    - pkgconfig(x11)
+setup      : |
+    ./autogen.sh
+    %configure
+build      : |
+    %make
+install    : |
+    %make_install
